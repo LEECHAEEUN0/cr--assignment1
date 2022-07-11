@@ -1,6 +1,8 @@
 {% extends 'main.html' %}
 
 {% block header %}
+<header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
  <!-- About Section-->
  <section class="page-section bg-primary text-white mb-0" id="about">
     <div class="container">
@@ -10,7 +12,10 @@
         <h3>제목 : <a href="{% url 'detail' blogs.id %}">{{blogs.title}}</a></h3>
         <p>작성일 : {{blogs.pub_date}}</p><hr>
         <p>글내용 : {{blogs.content}}</p><hr>
-        {% endfor %}
+        <p>사진:  {% if blogs.image %}
+            <img src="{{ blogs.image.url }}" width = "250" height = "250" alt="image">
+         {% endif %}</p>
+         {% endfor %}
         </div>      
         <!-- Icon Divider-->
         <div class="divider-custom divider-light">

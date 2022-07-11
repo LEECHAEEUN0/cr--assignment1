@@ -6,6 +6,12 @@
         <h3>제목 : {{post.title}}</h3>
         <p>작성일 : {{post.pub_date}}</p>
         <p>글내용 : {{post.content}}</p>
+        {% if post.image %}
+           <img src="{{ post.image.url }}" width = "250" height = "250" alt="image">
+        {% endif %}
+        <br>   
+        <a href="{% url 'edit' post.id %}">수정하기</a>
+        <a href="{% url 'delete' post.id %}">삭제하기</a>
         </div>      
         <!-- Icon Divider-->
         <div class="divider-custom divider-light">
